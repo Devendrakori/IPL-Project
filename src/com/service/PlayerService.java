@@ -16,18 +16,6 @@ public class PlayerService {
 		List<Player> playerDB = dao.getAllPlayer();
 		return playerDB;
 	}
-	public List<Player> getTeamPlayer(String team){
-		dao = new PlayerDao();
-		List<Player> playerDB = dao.getAllPlayer();
-		List<Player> teamplayer = new ArrayList<Player>();
-		for(Player player : playerDB)
-		{
-			if(player.getT_name().toLowerCase().equals(team.toLowerCase())) {
-				teamplayer.add(player);
-			}
-		}
-		return teamplayer;
-	}
 	public void insertPlayer(int num){
 		dao = new PlayerDao();
 		int count = 1;
@@ -55,10 +43,58 @@ public class PlayerService {
 		String tname = sc.nextLine();
 		System.out.println();
 		
-		dao.insertPlayer(jn, name, runs, wickets, tname);
+		System.out.print("Enter player's role : ");
+		String role = sc.nextLine();
+		System.out.println();
+		
+		dao.insertPlayer(jn, name,role, runs, wickets, tname);
 		System.out.print("Inserted Successfully...\n\n");
 		count++;
 		num--;
 		}
+	}
+	public List<Player> getTeamPlayer(String team){
+		dao = new PlayerDao();
+		List<Player> playerDB = dao.getAllPlayer();
+		List<Player> teamplayer = new ArrayList<Player>();
+		for(Player player : playerDB)
+		{
+			if(player.getT_name().toLowerCase().equals(team.toLowerCase())) {
+				teamplayer.add(player);
+			}
+		}
+		return teamplayer;
+	}
+	public List<Player> getPlayersByRole(String role){
+		dao = new PlayerDao();
+		List<Player> playerDB = dao.getAllPlayer();
+		List<Player> byroleplayer = new ArrayList<Player>();
+		for(Player player : playerDB)
+		{
+			if(player.getRole().toLowerCase().equals(role.toLowerCase())) {
+				byroleplayer.add(player);
+			}
+		}
+		return byroleplayer;
+	}
+	public boolean updateName(int jn,String upname) {
+		dao = new PlayerDao();
+		dao.updateName(jn,upname);
+		return true;
+	}
+	public boolean updateTName(int jn,String uptname) {
+		dao = new PlayerDao();
+		dao.updateTName(jn,uptname);
+		return true;
+	}
+	public boolean updateRuns(int jn,int run) {
+		dao = new PlayerDao();
+		dao.updateRuns(jn,run);
+		return true;
+	}
+	public boolean updateWickets(int jn,int wicket) {
+		dao = new PlayerDao();
+		dao.updateWickets(jn,wicket);
+		return true;
 	}
 }

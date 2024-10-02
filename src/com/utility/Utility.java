@@ -14,6 +14,8 @@ public class Utility{
 	private static String psw = "root";
 	private static Statement st = null;
 
+	private Utility()
+	{}
 	public static Statement createConnection(){
 		try{
 			Class.forName(path);

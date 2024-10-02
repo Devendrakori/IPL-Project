@@ -4,6 +4,7 @@ public class Player {
 
 	private int jn;
 	private String name;
+	private String role;
 	private int runs;
 	private int wickets;
 	private String t_name;
@@ -12,10 +13,11 @@ public class Player {
 		super();
 	}
 
-	public Player(int jn, String name, int runs, int wickets, String t_name) {
+	public Player(int jn, String name,String role, int runs, int wickets, String t_name) {
 		super();
 		this.jn = jn;
 		this.name = name;
+		this.role = role;
 		this.runs = runs;
 		this.wickets = wickets;
 		this.t_name = t_name;
@@ -59,6 +61,13 @@ public class Player {
 
 	public void setT_name(String t_name) {
 		this.t_name = t_name;
+	}
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
