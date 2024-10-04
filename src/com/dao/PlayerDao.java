@@ -12,7 +12,11 @@ public class PlayerDao {
 	Player player = null;
 	ResultSet rs = null;
 	List<Player> playerDB = null;
-	
+	public void createTable()
+	{
+		player = new Player();
+		
+	}
 	public List<Player> getAllPlayer(){
 		playerDB = new ArrayList<Player>();
 		String query = "SELECT * FROM Player";
