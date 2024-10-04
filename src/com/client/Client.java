@@ -38,8 +38,8 @@ public class Client {
 				break;
 			case 3:
 				System.out.print("Enter Team Name : ");
-				String team = sc.next().toUpperCase();
-				System.out.print("\n"+team+" Players List :-\n-------------------\n");
+				String team = sc.nextLine().toUpperCase();
+				System.out.println("\n" + team + " Players List :-\n-------------------\n");
 				List<Player> teamPlayer = control.getTeamPlayer(team);
 				for (Player player : teamPlayer) {
 					System.out.printf("%-20s%-15s%-10s%-10d%-7d\n", player.getName(), player.getRole(),
@@ -50,27 +50,30 @@ public class Client {
 			case 4:
 				while (true) {
 					System.out.print("Update :- \n");
-					System.out.println("----------------------------------------------------------------\n1) Update Name \n2) Update Team Name\n3) Update Runs\n4) Update Wickets");
+					System.out.println(
+							"----------------------------------------------------------------\n1) Update Name \n2) Update Team Name\n3) Update Runs\n4) Update Wickets\n5) Exit.");
 					System.out.println("----------------------------------------------------------------");
-					System.out.println("Enter Choice : ");
+					System.out.print("Enter Choice : ");
 					int choice = sc.nextInt();
 					System.out.println("----------------------------------------------------------------");
 					switch (choice) {
 					case 1:
 						System.out.print("Enter Jersey number : ");
 						int jn = sc.nextInt();
-						System.out.println();
+						sc.nextLine();
 						System.out.print("Enter New Name : ");
-						String nm = sc.next();
+						String nm = sc.nextLine();
+						System.out.println("\nUpdated.....");
 						control.updateName(jn, nm);
 						System.out.println("----------------------------------------------------------------");
 						break;
 					case 2:
 						System.out.print("Enter Jersey number : ");
 						int jn1 = sc.nextInt();
-						System.out.println();
+						sc.nextLine();
 						System.out.print("Enter New Team Name : ");
-						String tnm = sc.next();
+						String tnm = sc.nextLine();
+						System.out.println("\nUpdated.....");
 						control.updateTName(jn1, tnm);
 						System.out.println("----------------------------------------------------------------");
 						break;
@@ -80,6 +83,7 @@ public class Client {
 						System.out.println();
 						System.out.print("Enter Updated Runs : ");
 						int run = sc.nextInt();
+						System.out.println("\nUpdated.....");
 						control.updateRuns(jn2, run);
 						System.out.println("----------------------------------------------------------------");
 						break;
@@ -89,16 +93,19 @@ public class Client {
 						System.out.println();
 						System.out.print("Enter Updated Wickets : ");
 						int wc = sc.nextInt();
+						System.out.println("\nUpdated.....");
 						control.updateWickets(jn3, wc);
 						System.out.println("----------------------------------------------------------------");
 						break;
 					case 5:
+						System.out.println("Thank You For Visiting !");
+						sc.close();
 						System.exit(0);
 					}
 				}
 			case 5:
 				System.out.print("Enter Role of the Player : ");
-				String role = sc.next();
+				String role = sc.nextLine();
 				System.out.println();
 				List<Player> rolePlayer = control.getPlayersByRole(role);
 				for (Player player : rolePlayer) {
